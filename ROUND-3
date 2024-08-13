@@ -1,0 +1,120 @@
+Let’s extend the blog with additional questions that touch on more advanced concepts and services, suitable for candidates with 2-5 years of AWS experience### 21. **What is Amazon S3 Glacier, and When Should You Use It?** ❄️
+   **Answer:**
+   Amazon S3 Glacier is a low-cost cloud storage service for data archiving and long-term backup. It’s designed for infrequent access, where retrieval times of a few minutes to hours are acceptable.
+
+   **Use Cases:**
+   - Archiving large volumes of data that are rarely accessed.
+   - Long-term backup solutions.
+   - Compliance and regulatory data storage.
+
+   **Example Command to Move Data to Glacier:**
+   ```bash
+   aws s3 cp myfile.txt s3://mybucket/myfile.txt --storage-class GLACIER
+   ```
+
+### 22. **Explain AWS Lambda's Event-Driven Architecture.** 🔁
+   **Answer:**
+   AWS Lambda's event-driven architecture allows you to execute code in response to events triggered by other AWS services, such as S3 file uploads, DynamoDB updates, or API Gateway requests. This architecture is ideal for building scalable, loosely coupled applications.
+
+   **Common Lambda Triggers:**
+   - **S3 Events:** Run code when a file is uploaded to an S3 bucket.
+   - **DynamoDB Streams:** React to changes in a DynamoDB table.
+   - **API Gateway:** Handle HTTP requests as an endpoint.
+
+   **Example Command to Add a Trigger:**
+   ```bash
+   aws lambda create-event-source-mapping --function-name my-function --event-source-arn arn:aws:s3:::mybucket --starting-position LATEST
+   ```
+
+### 23. **What is AWS CloudTrail and How is It Used?** 🕵️‍♂️
+   **Answer:**
+   AWS CloudTrail is a service that enables governance, compliance, and operational and risk auditing of your AWS account. It records API calls made on your account, including the identity of the caller, time of the call, and the request parameters.
+
+   **Use Cases:**
+   - Monitoring and auditing AWS account activity.
+   - Troubleshooting operational issues by tracing API calls.
+   - Ensuring compliance with internal policies and regulations.
+
+   **Example Command to View CloudTrail Logs:**
+   ```bash
+   aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=RunInstances
+   ```
+
+### 24. **How Do You Handle Session Management and Authentication in AWS?** 🛡️
+   **Answer:**
+   AWS provides several services for session management and authentication:
+   - **IAM Roles:** Grant temporary access to AWS resources.
+   - **Cognito:** Manage user authentication and session management for web and mobile apps.
+   - **STS (Security Token Service):** Provide temporary security credentials to access AWS resources.
+
+   **Example Command to Assume a Role:**
+   ```bash
+   aws sts assume-role --role-arn arn:aws:iam::123456789012:role/my-role --role-session-name session1
+   ```
+
+### 25. **What is the Difference Between SQS and SNS?** 📬📢
+   **Answer:**
+   - **SQS (Simple Queue Service):** A fully managed message queue service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It allows asynchronous communication between services.
+   - **SNS (Simple Notification Service):** A fully managed messaging service that lets you send messages to multiple subscribers, including email, SMS, and other AWS services like SQS.
+
+   **Use Cases:**
+   - **SQS:** Workload decoupling, job queues, and distributed systems.
+   - **SNS:** Real-time notifications, fan-out messaging, and alert systems.
+
+### 26. **Explain the Concept of VPC Endpoints.** 🔗
+   **Answer:**
+   VPC Endpoints allow you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink, without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect. There are two types of VPC Endpoints:
+   - **Interface Endpoints:** Use Elastic Network Interfaces (ENIs) as entry points.
+   - **Gateway Endpoints:** Used for services like S3 and DynamoDB.
+
+   **Example Command to Create a VPC Endpoint:**
+   ```bash
+   aws ec2 create-vpc-endpoint --vpc-id vpc-123abc --service-name com.amazonaws.us-west-2.s3 --route-table-ids rtb-123abc
+   ```
+
+### 27. **What is the Purpose of AWS Auto Scaling Policies?** 📈
+   **Answer:**
+   AWS Auto Scaling policies allow you to automatically scale your compute resources (like EC2 instances) up or down based on demand, ensuring that you maintain performance while optimizing costs.
+
+   **Types of Auto Scaling Policies:**
+   - **Target Tracking:** Adjust capacity based on a target metric, such as average CPU utilization.
+   - **Step Scaling:** Adjust capacity based on step changes in the monitored metric.
+   - **Scheduled Scaling:** Increase or decrease capacity based on a predefined schedule.
+
+### 28. **What Are the Key Components of AWS Global Infrastructure?** 🌍
+   **Answer:**
+   AWS Global Infrastructure is designed to deliver high availability, security, and scalability. Key components include:
+   - **Regions:** Geographical areas where AWS hosts multiple data centers.
+   - **Availability Zones (AZs):** Discrete data centers within a region, each with its own power and networking.
+   - **Edge Locations:** Serve requests for CloudFront and AWS global services to reduce latency.
+
+### 29. **How Do You Implement High Availability in AWS?** 💻
+   **Answer:**
+   High availability in AWS can be achieved through:
+   - **Multi-AZ Deployments:** Distribute resources across multiple Availability Zones.
+   - **Load Balancing:** Use ELB (Elastic Load Balancer) to distribute traffic across healthy instances.
+   - **Auto Scaling:** Automatically scale resources based on demand to handle increased load.
+
+   **Example Command to Configure Multi-AZ RDS:**
+   ```bash
+   aws rds modify-db-instance --db-instance-identifier mydb --multi-az --apply-immediately
+   ```
+
+### 30. **What is AWS KMS and How is it Used?** 🔑
+   **Answer:**
+   AWS KMS (Key Management Service) is a managed service that makes it easy to create and control the encryption keys used to encrypt your data. It is integrated with many AWS services, ensuring your data is protected by encryption both at rest and in transit.
+
+   **Use Cases:**
+   - Encrypting S3 objects, EBS volumes, and RDS databases.
+   - Generating data keys for client-side encryption.
+   - Managing and rotating encryption keys.
+
+   **Example Command to Encrypt Data:**
+   ```bash
+   aws kms encrypt --key-id alias/my-key --plaintext fileb://plaintext.txt --output text --query CiphertextBlob
+   ```
+
+### Conclusion 🎯
+These additional questions and commands dive deeper into AWS's services, providing a solid foundation for candidates with 2-5 years of experience. As you prepare for your interview, focus on understanding these concepts and practicing hands-on with the AWS Management Console and CLI. This practical experience will help you confidently answer technical questions and demonstrate your proficiency in AWS.
+
+---
