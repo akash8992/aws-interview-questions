@@ -1,0 +1,95 @@
+---
+
+### 11. **Explain the Lifecycle of an EC2 Instance.** 🖥️
+   **Answer:**
+   The lifecycle of an EC2 instance includes the following states:
+   - **Pending:** The instance is preparing to launch.
+   - **Running:** The instance is active and running.
+   - **Stopping:** The instance is in the process of shutting down.
+   - **Stopped:** The instance is shut down but can be restarted.
+   - **Terminated:** The instance is permanently deleted and cannot be restarted.
+
+   **Example Command to Launch an EC2 Instance:**
+   ```bash
+   aws ec2 run-instances --image-id ami-12345678 --count 1 --instance-type t2.micro --key-name MyKeyPair
+   ```
+
+### 12. **What is AWS Lambda and How Does It Work?** ⚡
+   **Answer:**
+   AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. You write your code in languages like Python, Node.js, or Java, and Lambda executes it in response to triggers such as changes in data or HTTP requests.
+
+   **Example Command to Deploy a Lambda Function:**
+   ```bash
+   aws lambda create-function --function-name my-function --runtime nodejs14.x --role arn:aws:iam::123456789012:role/execution_role --handler index.handler --zip-file fileb://function.zip
+   ```
+
+### 13. **What is CloudFormation and How is it Used?** 📜
+   **Answer:**
+   AWS CloudFormation is a service that allows you to define and manage AWS infrastructure as code. You can write templates in JSON or YAML format to describe the resources you need, and CloudFormation will handle the provisioning and configuration.
+
+   **Example Command to Create a Stack:**
+   ```bash
+   aws cloudformation create-stack --stack-name my-stack --template-body file://template.yaml
+   ```
+
+### 14. **Explain the Role of Amazon RDS.** 🗄️
+   **Answer:**
+   Amazon RDS (Relational Database Service) is a managed service that makes it easier to set up, operate, and scale a relational database in the cloud. It supports databases like MySQL, PostgreSQL, Oracle, and SQL Server.
+
+   **Example Command to Create an RDS Instance:**
+   ```bash
+   aws rds create-db-instance --db-instance-identifier mydb --db-instance-class db.t2.micro --engine mysql --allocated-storage 20 --master-username admin --master-user-password password
+   ```
+
+### 15. **What are Elastic Beanstalk and its Key Features?** 🌱
+   **Answer:**
+   AWS Elastic Beanstalk is a platform-as-a-service (PaaS) offering that allows you to deploy and manage applications in various languages without worrying about the underlying infrastructure. It automatically handles the deployment, capacity provisioning, load balancing, and monitoring.
+
+### 16. **What is the Purpose of Amazon Route 53?** 🗺️
+   **Answer:**
+   Amazon Route 53 is a scalable DNS and domain name registration service. It is used to route end-user requests to applications hosted in AWS. It also supports health checks, DNS failover, and domain name registration.
+
+   **Example Command to Create a Hosted Zone:**
+   ```bash
+   aws route53 create-hosted-zone --name example.com --caller-reference unique-string
+   ```
+
+### 17. **How Do You Handle Disaster Recovery in AWS?** 💥
+   **Answer:**
+   AWS provides several strategies for disaster recovery, including:
+   - **Backup and Restore:** Regular backups to S3 and restoring when needed.
+   - **Pilot Light:** Minimal setup running all the time, with a small instance ready to scale up during a disaster.
+   - **Warm Standby:** A scaled-down version of a fully functional environment running in standby.
+   - **Multi-Site:** Full-scale production environments running in multiple regions.
+
+### 18. **What is S3 Versioning and Why is it Important?** 🗃️
+   **Answer:**
+   S3 Versioning keeps multiple versions of an object in the same bucket. This helps in recovery from unintended user actions and application failures.
+
+   **Example Command to Enable Versioning:**
+   ```bash
+   aws s3api put-bucket-versioning --bucket my-bucket --versioning-configuration Status=Enabled
+   ```
+
+### 19. **What is the AWS Shared Responsibility Model?** 🤝
+   **Answer:**
+   The AWS Shared Responsibility Model outlines the responsibilities of AWS and the customer. AWS is responsible for the security of the cloud (hardware, software, networking), while customers are responsible for security in the cloud (data, identity management, application-level controls).
+
+### 20. **How Would You Implement CI/CD in AWS?** 🔄
+   **Answer:**
+   Implementing CI/CD in AWS can be achieved using the following tools:
+   - **AWS CodeCommit:** Source control service to host your Git repositories.
+   - **AWS CodeBuild:** Build service to compile, test, and package your code.
+   - **AWS CodeDeploy:** Deployment service to automate code deployment to any instance.
+   - **AWS CodePipeline:** Continuous integration and delivery service that automates the release process.
+
+   **Example Command to Start a CodePipeline:**
+   ```bash
+   aws codepipeline start-pipeline-execution --name my-pipeline
+   ```
+
+### Conclusion 🎯
+Mastering these AWS services and commands will give you an edge in your interview preparation. Remember to not only understand the theory but also get hands-on experience with AWS. This practical knowledge will help you articulate your understanding during the interview. Keep practicing, and good luck! 🌟
+
+---
+
